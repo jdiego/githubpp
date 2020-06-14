@@ -38,6 +38,11 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
     set(CMAKE_CONFIGURATION_TYPES "Debug" CACHE STRING "" FORCE)
     set(CMAKE_VERBOSE_MAKEFILE ON)
 
+    # 
+    if (APPLE)
+        set(CMAKE_MACOSX_RPATH 1)
+        find_package(PkgConfig REQUIRED)
+    endif()
     # Testing only available if this is the main app
     # Note this needs to be done in the main CMakeLists
     # since it calls enable_testing, which must be in the
