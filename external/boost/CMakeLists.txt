@@ -11,7 +11,7 @@ if ( Boost_FOUND )
     if(NOT Boost_VERSION_STRING VERSION_LESS 1.71.0)
         message(STATUS "New Boost version may have incorrect or missing dependencies and imported targets")
     endif()
-    message(STATUS "Boost version: ${BOOST_VERSION}")
+    message(STATUS "Boost version: ${Boost_VERSION}")
 
     # Make found targets globally available.
     set_target_properties( 

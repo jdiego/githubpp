@@ -1,9 +1,6 @@
 #
 add_subdirectory(boost)
-find_package(fmt)
-if (NOT ${FMT_FOUND})
-  add_subdirectory(fmt)
-endif()
+add_subdirectory(fmt)
 add_subdirectory(cpr)
 #
 if(ORACLE_USE_EXTERNAL_JSON)
