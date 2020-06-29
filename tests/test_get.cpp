@@ -5,12 +5,16 @@
 #include <cstdlib>
 #include <string>
 #include <string_view>
+#include <fmt/core.h>
+TEST_CASE( "Auth via TOKEN", "[main]" ) {
+    if(const char* token = std::getenv("GH_TOKEN"))
+    {
+        auto g = githubpp::Github(token);
+        REQUIRE(g.token() == token);
 
-TEST_CASE( "Auth", "[main]" ) {
-    const auto username = std::getenv("");
-    const auto password = std::getenv("");
-    const auto token = std::getenv("");
-    auto g = githubpp::Github(username, password);
-    REQUIRE(g.username() == username);
-    
+        g.rate_limit();
+    }   
+    else {
+        REQUIRE(false);
+    }
 }

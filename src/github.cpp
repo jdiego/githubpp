@@ -22,13 +22,18 @@ namespace githubpp
     Github::Github(std::string_view user_token): m_token{user_token}
     {
         //
-        const auto url = fmt::format("{0}/{1}", DEFAULT_BASE_URL, "/user");
+        const auto url = fmt::format("{0}/{1}", DEFAULT_BASE_URL, "user");
         const auto token = fmt::format("token {}", user_token);
         cpr::Response r = cpr::Get(
             cpr::Url{url}, 
-            cpr::Parameters{{"Authorization", token.c_str()}}
+            cpr::Header{{"Authorization", token.c_str()}}
         );
-        std::cout << r.text << std::endl;
+    }
+    void Github::rate_limit(){
+        const auto url = fmt::format("{0}/{1}", DEFAULT_BASE_URL, "rate_limit");
+        cpr::Response r = cpr::Get(cpr::Url{url});
+
+        std::cout << "URL: " << url << "\n" << r.text << std::endl;
 
     }
 } // namespace githubpp

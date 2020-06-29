@@ -22,6 +22,8 @@ namespace githubpp {
             Github(std::string_view username, std::string_view password);
             Github(std::string_view token);
 
+            void rate_limit(void);
+
             std::string username() const { return this->m_username;}
             std::string password() const { return this->m_password;}
             std::string token() const { return this->m_token; }
