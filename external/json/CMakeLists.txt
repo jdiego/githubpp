@@ -1,3 +1,8 @@
+find_package(nlohmann_json)
+
+
+
+
 # Testing library
 set(JSON_BuildTests OFF CACHE INTERNAL "")  # Forces the value
 set(JSON_MultipleHeaders ON CACHE INTERNAL "")
